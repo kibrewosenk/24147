@@ -1,15 +1,14 @@
 {
-  "name": "telegram-tapping-game-bot",
+  "name": "your-project-name",
   "version": "1.0.0",
-  "description": "A simple Telegram tapping game bot",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "node-telegram-bot-api": "^0.56.0"
+    "node-telegram-bot-api": "^your_version"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": "14.x" // Replace with the version you want
   }
 }
