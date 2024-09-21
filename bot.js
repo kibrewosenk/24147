@@ -14,7 +14,7 @@ bot.onText(/\/start/, (msg) => {
     const options = {
         reply_markup: {
             inline_keyboard: [
-                [{ text: "Play Game", web_app: { url: "https://https://gamesee.gg/mini-games/taptaptap/play/" } }],
+                [{ text: "Play Game", web_app: { url: "https://gamesee.gg/mini-games/taptaptap/play/" } }],
                 [{ text: "Instructions", callback_data: "instructions" }],
                 [{ text: "Help", callback_data: "help" }],
                 [{ text: "Button 1", callback_data: "btn1" }],
