@@ -33,8 +33,7 @@ bot.on('callback_query', (callbackQuery) => {
 
     // Handle the main menu options
     if (data === 'play_game') {
-        bot.sendMessage(message.chat.id, 'Starting the game... 🚀');
-        // Here you can add additional logic to start the game.
+        startTappingGame(message.chat.id);
     } else if (data === 'instructions') {
         bot.sendMessage(message.chat.id, 'Instructions: Tap the button to play!');
     } else if (data === 'help') {
@@ -48,6 +47,21 @@ bot.on('callback_query', (callbackQuery) => {
         bot.sendMessage(message.chat.id, 'You clicked Button 2!');
     }
 });
+
+// Tapping game function
+function startTappingGame(chatId) {
+    let score = 0;
+    const gameDuration = 10; // Game duration in seconds
+    const gameInterval = setInterval(() => {
+        score++;
+        bot.sendMessage(chatId, `Tap! Your current score is: ${score}`);
+    }, 1000); // Send a message every second
+
+    setTimeout(() => {
+        clearInterval(gameInterval);
+        bot.sendMessage(chatId, `Game over! Your final score is: ${score}`);
+    }, gameDuration * 1000); // End the game after the specified duration
+}
 
 // Handle the "/tap" command if needed
 bot.onText(/\/tap/, (msg) => {
