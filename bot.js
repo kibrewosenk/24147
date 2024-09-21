@@ -14,7 +14,7 @@ bot.onText(/\/start/, (msg) => {
     const options = {
         reply_markup: {
             inline_keyboard: [
-                [{ text: "Play Game", callback_data: "play_game" }],
+                [{ text: "Play Game", web_app: { url: "https://orteil.dashnet.org/cookieclicker/" } }],
                 [{ text: "Instructions", callback_data: "instructions" }],
                 [{ text: "Help", callback_data: "help" }],
                 [{ text: "Button 1", callback_data: "btn1" }],
@@ -32,10 +32,7 @@ bot.on('callback_query', (callbackQuery) => {
     const data = callbackQuery.data;
 
     // Handle the main menu options
-    if (data === 'play_game') {
-        const firstGameUrl = "https://orteil.dashnet.org/cookieclicker/"; // First game link
-        bot.sendMessage(message.chat.id, `Start tapping here: ${firstGameUrl}`);
-    } else if (data === 'instructions') {
+    if (data === 'instructions') {
         bot.sendMessage(message.chat.id, 'Instructions: Tap the button to play!');
     } else if (data === 'help') {
         bot.sendMessage(message.chat.id, 'Help: Contact @support for assistance.');
