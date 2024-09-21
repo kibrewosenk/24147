@@ -4,9 +4,9 @@ const TelegramBot = require('node-telegram-bot-api');
 const token = process.env.TELEGRAM_TOKEN;
 
 // Create a bot that uses polling to fetch updates
-const bot = new TelegramBot(token, {polling: true});
+const bot = new TelegramBot(token, { polling: true });
 
-// Matches "/start"
+// Handle the "/start" command
 bot.onText(/\/start/, (msg) => {
     const chatId = msg.chat.id;
 
@@ -41,10 +41,16 @@ bot.on('callback_query', (callbackQuery) => {
         bot.sendMessage(message.chat.id, 'Help: Contact @support for assistance.');
     }
 
-    // Handle Button 1 and Button 2 logic from your existing code
+    // Handle Button 1 and Button 2 logic
     if (data === 'btn1') {
         bot.sendMessage(message.chat.id, 'You clicked Button 1!');
     } else if (data === 'btn2') {
         bot.sendMessage(message.chat.id, 'You clicked Button 2!');
     }
+});
+
+// Handle the "/tap" command if needed
+bot.onText(/\/tap/, (msg) => {
+    const chatId = msg.chat.id;
+    bot.sendMessage(chatId, 'You tapped! Keep going!');
 });
