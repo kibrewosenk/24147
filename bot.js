@@ -1,5 +1,4 @@
 const TelegramBot = require('node-telegram-bot-api');
-
 // Fetch the API token from environment variables
 const token = process.env.TELEGRAM_TOKEN;
 
