@@ -33,15 +33,8 @@ bot.on('callback_query', (callbackQuery) => {
 
     // Handle the main menu options
     if (data === 'play_game') {
-        const games = [
-            { name: "Cookie Clicker", url: "https://orteil.dashnet.org/cookieclicker/" },
-            { name: "Tap Tap Builder", url: "https://taptapbuilder.com/" },
-            { name: "Clicker Heroes", url: "https://clickerheroes.com/" },
-            { name: "Adventure Capitalist", url: "https://www.adventurecapitalist.com/" },
-        ];
-
-        const gameLinks = games.map(game => `${game.name}: ${game.url}`).join('\n');
-        bot.sendMessage(message.chat.id, `Here are some tapping games you can try:\n\n${gameLinks}`);
+        const firstGameUrl = "https://orteil.dashnet.org/cookieclicker/"; // First game link
+        bot.sendMessage(message.chat.id, `Start tapping here: ${firstGameUrl}`);
     } else if (data === 'instructions') {
         bot.sendMessage(message.chat.id, 'Instructions: Tap the button to play!');
     } else if (data === 'help') {
