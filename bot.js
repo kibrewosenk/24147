@@ -35,13 +35,6 @@ bot.on('callback_query', (callbackQuery) => {
     } else if (data === 'help') {
         bot.sendMessage(message.chat.id, 'Help: Contact @support for assistance.');
     }
-
-    // Handle Button 1 and Button 2 logic
-    if (data === 'btn1') {
-        bot.sendMessage(message.chat.id, 'You clicked Button 1!');
-    } else if (data === 'btn2') {
-        bot.sendMessage(message.chat.id, 'You clicked Button 2!');
-    }
 });
 
 // Handle the "/tap" command if needed
