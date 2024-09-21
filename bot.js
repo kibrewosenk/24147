@@ -10,17 +10,20 @@ const bot = new TelegramBot(token, {polling: true});
 bot.onText(/\/start/, (msg) => {
     const chatId = msg.chat.id;
 
-    // Define an inline keyboard with buttons
+    // Main menu with inline keyboard buttons
     const options = {
         reply_markup: {
             inline_keyboard: [
+                [{ text: "Play Game", callback_data: "play_game" }],
+                [{ text: "Instructions", callback_data: "instructions" }],
+                [{ text: "Help", callback_data: "help" }],
                 [{ text: "Button 1", callback_data: "btn1" }],
                 [{ text: "Button 2", callback_data: "btn2" }]
             ]
         }
     };
 
-    bot.sendMessage(chatId, 'Choose an option:', options);
+    bot.sendMessage(chatId, 'Welcome! Choose an option:', options);
 });
 
 // Handle button clicks (callback queries)
@@ -28,6 +31,17 @@ bot.on('callback_query', (callbackQuery) => {
     const message = callbackQuery.message;
     const data = callbackQuery.data;
 
+    // Handle the main menu options
+    if (data === 'play_game') {
+        bot.sendMessage(message.chat.id, 'Starting the game... 🚀');
+        // Here you can add additional logic to start the game.
+    } else if (data === 'instructions') {
+        bot.sendMessage(message.chat.id, 'Instructions: Tap the button to play!');
+    } else if (data === 'help') {
+        bot.sendMessage(message.chat.id, 'Help: Contact @support for assistance.');
+    }
+
+    // Handle Button 1 and Button 2 logic from your existing code
     if (data === 'btn1') {
         bot.sendMessage(message.chat.id, 'You clicked Button 1!');
     } else if (data === 'btn2') {
