@@ -2,9 +2,9 @@
   "name": "telegram-tapping-game-bot",
   "version": "1.0.0",
   "description": "A simple Telegram tapping game bot",
-  "main": "bot.js", // or "index.js" if you prefer that name
+  "main": "bot.js",
   "scripts": {
-    "start": "node bot.js" // Adjust to the file you kept
+    "start": "node bot.js"
   },
   "dependencies": {
     "node-telegram-bot-api": "^0.56.0"
